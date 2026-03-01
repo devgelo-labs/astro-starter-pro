@@ -17,9 +17,13 @@
 
 - [Demo](#demo)
 - [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
+- [Content Management](#content-management)
 - [Commands](#commands)
+- [Support the Project](#support-the-project)
 - [License](#license)
 
 </details>
@@ -41,6 +45,44 @@
 <br>
 
 <img alt="Image" src="./github/astro-starter-pro.webp" />
+
+<br>
+
+<img alt="PageSpeed Insights Score 100/100" src="https://github.com/user-attachments/assets/541d4bfc-bcb9-4287-bd91-08564108d706" />
+
+<br>
+
+## Tech Stack
+
+This template is built with modern, high-performance technologies:
+
+- **[Astro 5](https://astro.build/)**: The web framework for building content-driven websites.
+- **[Tailwind CSS 4](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development.
+- **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed programming language that builds on JavaScript.
+- **[MDX](https://mdxjs.com/)**: Markdown for the component era, allowing you to use JSX in your markdown content.
+
+<br>
+
+## Project Structure
+
+A quick overview of the folder structure to help you understand where everything is located:
+
+```text
+/
+├── public/                # Static assets (fonts, favicon, images outside of processing)
+├── src/
+│   ├── assets/            # Images and assets to be processed by Astro
+│   ├── components/        # Reusable UI components (Navbar, Footer, SEO, etc.)
+│   ├── config/            # Centralized site configuration (site.ts)
+│   ├── content/           # Blog posts and content collections (Markdown/MDX)
+│   ├── layouts/           # Base page layouts
+│   ├── pages/             # File-based routing (pages and endpoints)
+│   ├── styles/            # Global CSS and Tailwind directives
+│   ├── types/             # TypeScript type definitions
+│   └── content.config.ts  # Astro Content Collections configuration
+├── astro.config.mjs       # Astro configuration file
+└── tailwind.config.mjs    # Tailwind CSS configuration
+```
 
 <br>
 
@@ -66,18 +108,56 @@ All global site information is managed in `src/config/site.ts`. Update this file
 
 ```typescript
 // src/config/site.ts
+import ogImage from "../assets/og-image.png";
+
 export const siteConfig = {
   name: "Astro Starter Pro",
-  description: "Your SEO description",
+  description:
+    "Starter template optimized for SEO and performance. A solid foundation to start your projects with best practices.",
   url: "https://astrostarterpro.com",
-  author: "Angelo Pescetto",
-  // ...
+  lang: "en",
+  locale: "en_US",
+  author: "Devgelo",
+  twitter: "@Devgelo",
+  ogImage: ogImage,
+  socialLinks: {
+    twitter: "https://twitter.com",
+    github: "https://github.com/devgelo-labs/astro-starter-pro",
+    discord: "https://discord.com",
+  },
+  navLinks: [
+    { text: "Home", href: "/" },
+    { text: "About", href: "/about" },
+    { text: "Services", href: "/services" },
+    { text: "Blog", href: "/blog" },
+    { text: "Contact", href: "/contact" },
+    { text: "Widgets", href: "/widgets" },
+  ],
 };
 ```
 
-<br>
+## Content Management
 
-<img alt="PageSpeed Insights Score 100/100" src="https://github.com/user-attachments/assets/541d4bfc-bcb9-4287-bd91-08564108d706" />
+This template uses **Astro Content Collections** to manage blog posts.
+
+To add a new blog post, simply create a new `.md` or `.mdx` file inside the `src/content/blog/` directory.
+
+### Frontmatter Schema
+
+Each blog post must include the following frontmatter at the top of the file:
+
+```yaml
+---
+title: "Your Post Title"
+description: "A brief summary of your post for SEO."
+pubDate: 2024-03-20
+author: "Author Name"
+image: "/images/your-cover-image.webp" # Optional
+tags: ["Astro", "Tailwind"] # Optional
+category: "Web Development" # Optional
+---
+Your markdown or MDX content goes here...
+```
 
 <br>
 
