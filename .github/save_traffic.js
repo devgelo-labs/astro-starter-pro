@@ -1,7 +1,10 @@
 import fs from "node:fs";
 
 async function saveTraffic() {
-  const token = process.env.GRAPH_TOKEN;
+  const token = process.env.GRAPH_TOKEN?.trim();
+  if (!token) throw new Error("GRAPH_TOKEN is not set");
+  if (/\s/.test(token))
+    throw new Error("GRAPH_TOKEN contains whitespace or line breaks");
   const repo =
     process.env.GITHUB_REPOSITORY || "devgelo-labs/astro-starter-pro";
   const filePath = "./.github/data/clones.json";
@@ -13,7 +16,17 @@ async function saveTraffic() {
     },
   );
 
-  if (!response.ok) throw new Error(`GitHub API error: ${response.statusText}`);
+  if (!response.ok) {
+    const hint =
+      response.status === 401
+        ? " (GRAPH_TOKEN is invalid or expired)"
+        : response.status === 403
+          ? " (GRAPH_TOKEN lacks Administration: read permission)"
+          : "";
+    throw new Error(
+      `GitHub API error: ${response.status} ${response.statusText}${hint}`,
+    );
+  }
 
   const apiData = await response.json();
 
