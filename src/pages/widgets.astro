@@ -17,6 +17,7 @@ import CallToAction from "@/components/widgets/CallToAction.astro";
 import Portfolio from "@/components/widgets/Portfolio.astro";
 import Experience from "@/components/widgets/Experience.astro";
 import Skills from "@/components/widgets/Skills.astro";
+import Team from "@/components/widgets/Team.astro";
 
 const heroProps = {
   title: "Lorem Ipsum Dolor Sit Amet",
@@ -432,6 +433,33 @@ const skillsProps = {
   ],
 };
 
+const teamProps = {
+  title: "Lorem Ipsum Team",
+  tagline: "Team",
+  columns: 3 as const,
+  members: [
+    {
+      name: "Lorem Ipsum",
+      role: "Dolor Sit",
+      bio: "Consectetur adipiscing elit, sed do eiusmod tempor.",
+      socials: [
+        { icon: "tabler:brand-linkedin", href: "#", label: "LinkedIn" },
+      ],
+    },
+    {
+      name: "Amet Consectetur",
+      role: "Adipiscing Elit",
+      bio: "Ut enim ad minim veniam, quis nostrud exercitation.",
+      socials: [{ icon: "tabler:brand-github", href: "#", label: "GitHub" }],
+    },
+    {
+      name: "Sed Eiusmod",
+      role: "Tempor Incididunt",
+      bio: "Duis aute irure dolor in reprehenderit in voluptate.",
+    },
+  ],
+};
+
 const metadata = {
   title: "Widgets - Astro Starter Pro",
   description: "Showcase of available components and widgets.",
@@ -452,6 +480,7 @@ const metadata = {
   <Portfolio {...portfolioProps} />
   <Experience {...experienceProps} />
   <Testimonials {...testimonialsProps} />
+  <Team {...teamProps} />
   <Pricing {...pricingProps} />
   <Integrations {...integrationsProps} />
   <FAQ {...faqProps} />

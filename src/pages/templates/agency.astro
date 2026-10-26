@@ -1,0 +1,244 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/widgets/Hero.astro";
+import ServiceList from "@/components/widgets/ServiceList.astro";
+import Content from "@/components/widgets/Content.astro";
+import Values from "@/components/widgets/Values.astro";
+import Stats from "@/components/widgets/Stats.astro";
+import Team from "@/components/widgets/Team.astro";
+import Testimonials from "@/components/widgets/Testimonials.astro";
+import Headline from "@/components/ui/Headline.astro";
+import Form from "@/components/ui/Form.astro";
+import CallToAction from "@/components/widgets/CallToAction.astro";
+
+import officeImg from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Agency Template — Astro Starter Pro",
+  description:
+    "A ready-to-use digital agency page with services, team, client stories, and a contact form.",
+};
+
+const heroProps = {
+  title: `We Build Digital Products <span class="bg-linear-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">People Love</span>`,
+  tagline: "Northwind Studio",
+  description:
+    "A small, senior team of designers and engineers helping startups and brands launch fast, accessible, and memorable web experiences.",
+  actions: [
+    {
+      text: "Start a Project",
+      href: "#contact",
+      variant: "primary" as const,
+      icon: "lucide:send",
+    },
+    {
+      text: "Meet the Team",
+      href: "#team",
+      variant: "secondary" as const,
+      icon: "lucide:users",
+    },
+  ],
+};
+
+const serviceListProps = {
+  tagline: "What We Do",
+  title: "Services Built Around Your Goals",
+  subtitle:
+    "From the first sketch to the production launch, we cover the full product lifecycle.",
+  services: [
+    {
+      title: "Product Design",
+      description:
+        "User research, wireframes, and high-fidelity interfaces backed by a reusable design system.",
+      icon: "lucide:pen-tool",
+    },
+    {
+      title: "Web Development",
+      description:
+        "Fast, SEO-friendly websites and web apps built with Astro, React, and modern tooling.",
+      icon: "lucide:code",
+    },
+    {
+      title: "Brand Strategy",
+      description:
+        "Positioning, messaging, and visual identity that make your product easy to remember.",
+      icon: "lucide:sparkles",
+    },
+  ],
+};
+
+const contentProps = {
+  tagline: "About Us",
+  title: "A Studio Small by Design",
+  description: [
+    "We keep our team intentionally small so every client works directly with senior people. No hand-offs, no account managers, no surprises.",
+    "Since 2018 we have shipped more than 150 projects for companies ranging from two-person startups to global brands.",
+  ],
+  image: officeImg,
+  imageAlt: "Northwind Studio office",
+};
+
+const valuesProps = {
+  tagline: "How We Work",
+  title: "Principles Behind Every Project",
+  columns: 3 as const,
+  items: [
+    {
+      title: "Transparency",
+      description:
+        "Weekly demos and a shared roadmap keep you in the loop from day one.",
+      icon: "lucide:eye",
+      iconClass: "bg-blue-500/10 text-blue-400",
+    },
+    {
+      title: "Craft",
+      description:
+        "We sweat the details, from accessibility to performance budgets.",
+      icon: "lucide:gem",
+      iconClass: "bg-purple-500/10 text-purple-400",
+    },
+    {
+      title: "Partnership",
+      description: "We measure success by your outcomes, not by hours billed.",
+      icon: "lucide:handshake",
+      iconClass: "bg-pink-500/10 text-pink-400",
+    },
+  ],
+};
+
+const statsProps = {
+  stats: [
+    { title: "Projects Shipped", amount: "150+", icon: "lucide:rocket" },
+    { title: "Happy Clients", amount: "80", icon: "lucide:smile" },
+    { title: "Years in Business", amount: "8", icon: "lucide:calendar" },
+    { title: "Countries", amount: "14", icon: "lucide:globe" },
+  ],
+};
+
+const teamProps = {
+  id: "team",
+  tagline: "Our Team",
+  title: "The People Behind the Work",
+  subtitle: "Senior specialists who care about the details.",
+  members: [
+    {
+      name: "Laura Méndez",
+      role: "Founder & Creative Director",
+      bio: "Leads strategy and brand work across every engagement.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      socials: [
+        { icon: "tabler:brand-linkedin", href: "#", label: "LinkedIn" },
+        { icon: "tabler:brand-x", href: "#", label: "X" },
+      ],
+    },
+    {
+      name: "Daniel Park",
+      role: "Lead Engineer",
+      bio: "Architects fast, maintainable frontends and APIs.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      socials: [
+        { icon: "tabler:brand-github", href: "#", label: "GitHub" },
+        { icon: "tabler:brand-linkedin", href: "#", label: "LinkedIn" },
+      ],
+    },
+    {
+      name: "Amara Okafor",
+      role: "Product Designer",
+      bio: "Turns complex flows into simple, accessible interfaces.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      socials: [
+        { icon: "tabler:brand-dribbble", href: "#", label: "Dribbble" },
+        { icon: "tabler:brand-linkedin", href: "#", label: "LinkedIn" },
+      ],
+    },
+    {
+      name: "Tomás Rivera",
+      role: "Project Manager",
+      bio: "Keeps timelines realistic and communication clear.",
+      socials: [
+        { icon: "tabler:brand-linkedin", href: "#", label: "LinkedIn" },
+      ],
+    },
+  ],
+};
+
+const testimonialsProps = {
+  tagline: "Client Stories",
+  title: "What Our Clients Say",
+  subtitle: "Long-term partnerships built on results.",
+  testimonials: [
+    {
+      name: "Sarah Jenkins",
+      role: "CEO",
+      company: "Bloom Health",
+      testimonial:
+        "Northwind redesigned our patient portal in eight weeks. Sign-ups doubled the month after launch.",
+    },
+    {
+      name: "Michael Chen",
+      role: "Head of Marketing",
+      company: "Lumen Labs",
+      testimonial:
+        "They understood our brand better than we did. The new site finally feels like us.",
+    },
+    {
+      name: "Emily Rodriguez",
+      role: "Founder",
+      company: "Trailhead",
+      testimonial:
+        "Senior people, clear communication, and zero drama. Exactly what an early-stage startup needs.",
+    },
+  ],
+};
+
+const ctaProps = {
+  tagline: "Let's Talk",
+  title: "Have a project in mind?",
+  subtitle:
+    "Tell us about your goals and we will get back to you within two business days.",
+  actions: [
+    {
+      text: "Book a Call",
+      href: "#contact",
+      variant: "primary" as const,
+      icon: "lucide:calendar",
+    },
+  ],
+};
+---
+
+<BaseLayout {metadata}>
+  <Hero {...heroProps} />
+
+  <ServiceList {...serviceListProps} />
+
+  <Content {...contentProps} />
+
+  <Values {...valuesProps} />
+
+  <Stats {...statsProps} />
+
+  <Team {...teamProps} />
+
+  <Testimonials {...testimonialsProps} />
+
+  <CallToAction {...ctaProps} />
+
+  <section
+    id="contact"
+    class="reveal scroll-mt-[72px] px-4 md:px-6 pt-8 md:pt-12"
+  >
+    <Headline
+      tagline="Contact"
+      title="Start Your Project"
+      subtitle="Share a few details and we will reach out shortly."
+      classes={{ container: "max-w-3xl mx-auto text-center" }}
+    />
+    <div class="mx-auto max-w-xl bg-card border border-border rounded-3xl p-8 shadow-sm mb-12 md:mb-16">
+      <Form />
+    </div>
+  </section>
+</BaseLayout>

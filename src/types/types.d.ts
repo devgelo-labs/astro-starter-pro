@@ -120,6 +120,19 @@ export interface TestimonialsProps extends HeadlineProps {
   testimonials?: Testimonial[];
 }
 
+export interface TeamMember {
+  name: string;
+  role: string;
+  image?: string;
+  bio?: string;
+  socials?: { icon: string; href: string; label: string }[];
+}
+
+export interface TeamProps extends HeadlineProps {
+  members?: TeamMember[];
+  columns?: 2 | 3 | 4;
+}
+
 export interface FAQItem {
   question: string;
   answer: string;

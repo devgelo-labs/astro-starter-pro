@@ -29,6 +29,7 @@ export const siteConfig = {
       links: [
         { text: "Personal Portfolio", href: "/templates/portfolio" },
         { text: "SaaS Landing", href: "/templates/saas" },
+        { text: "Agency", href: "/templates/agency" },
       ],
     },
   ],
