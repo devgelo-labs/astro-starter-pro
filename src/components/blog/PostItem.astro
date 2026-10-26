@@ -14,25 +14,19 @@ const readingTime = remarkPluginFrontmatter?.minutesRead
   : "";
 ---
 
-<article
-  class="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
->
+<article class="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
   <div class="relative h-48 w-full overflow-hidden">
-    {
-      post.data.image && (
-        <img
-          src={post.data.image}
-          alt={post.data.title}
-          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      )
-    }
+    {post.data.image && (
+      <img
+        src={post.data.image}
+        alt={post.data.title}
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+    )}
   </div>
   <div class="flex flex-1 flex-col p-6">
     <div class="flex-1">
-      <p class="text-sm font-medium text-primary">
-        {post.data.author}
-      </p>
+      <p class="text-sm font-medium text-primary">{post.data.author}</p>
       <a
         href={`/blog/${post.id}`}
         class="mt-2 block before:absolute before:inset-0 before:z-10"
@@ -47,21 +41,17 @@ const readingTime = remarkPluginFrontmatter?.minutesRead
     </div>
     <div class="mt-6 flex items-center">
       <div class="shrink-0">
-        <span class="sr-only">
-          {post.data.author}
-        </span>
+        <span class="sr-only">{post.data.author}</span>
       </div>
       <div class="">
         <div class="flex space-x-1 text-sm text-muted-foreground">
           <time datetime={post.data.pubDate.toISOString()}>
-            {
-              post.data.pubDate.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                timeZone: "UTC",
-              })
-            }
+            {post.data.pubDate.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              timeZone: "UTC",
+            })}
           </time>
           {readingTime && <span aria-hidden="true">&bull;</span>}
           {readingTime && <span>{readingTime}</span>}
@@ -69,12 +59,10 @@ const readingTime = remarkPluginFrontmatter?.minutesRead
       </div>
     </div>
 
-    {
-      post.data.tags && (
-        <div class="mt-4 relative z-20">
-          <Tags tags={post.data.tags} />
-        </div>
-      )
-    }
+    {post.data.tags && (
+      <div class="mt-4 relative z-20">
+        <Tags tags={post.data.tags} />
+      </div>
+    )}
   </div>
 </article>

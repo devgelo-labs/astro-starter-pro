@@ -28,52 +28,46 @@ const { container: containerClassProp = "" } = classes;
   animate={animate}
 >
   <div class="text-center">
-    {
-      tagline && (
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6">
-          <span class="relative flex h-2 w-2" aria-hidden="true">
-            <span class="absolute inline-flex h-full w-full rounded-full bg-primary/60 opacity-75 animate-ping motion-reduce:animate-none" />
-            <span class="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-          </span>
-          {tagline}
-        </div>
-      )
-    }
-    {
-      (title || description) && (
-        <Headline
-          title={title}
-          subtitle={description}
-          titleAs="h1"
-          classes={{
-            container: "mb-0 max-w-none",
-            title:
-              "text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6",
-            subtitle: "max-w-2xl mx-auto text-xl text-muted-foreground mb-10",
-          }}
-        />
-      )
-    }
+    {tagline && (
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6">
+        <span class="relative flex h-2 w-2" aria-hidden="true">
+          <span class="absolute inline-flex h-full w-full rounded-full bg-primary/60 opacity-75 animate-ping motion-reduce:animate-none" />
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+        </span>
+        {tagline}
+      </div>
+    )}
+    {(title || description) && (
+      <Headline
+        title={title}
+        subtitle={description}
+        titleAs="h1"
+        classes={{
+          container: "mb-0 max-w-none",
+          title:
+            "text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6",
+          subtitle: "max-w-2xl mx-auto text-xl text-muted-foreground mb-10",
+        }}
+      />
+    )}
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      {
-        Array.isArray(actions) &&
-          actions.length > 0 &&
-          actions.map((action) => (
-            <Button
-              href={action.href}
-              variant={action.variant as "primary" | "secondary"}
-              size="lg"
-              aria-label={action.ariaLabel}
-              class="w-full sm:w-auto"
-            >
-              {action.icon && (
-                <Icon name={action.icon} class="w-5 h-5 mr-2 -ml-1" />
-              )}
-              {action.text}
-            </Button>
-          ))
-      }
+      {Array.isArray(actions) &&
+        actions.length > 0 &&
+        actions.map((action) => (
+          <Button
+            href={action.href}
+            variant={action.variant as "primary" | "secondary"}
+            size="lg"
+            aria-label={action.ariaLabel}
+            class="w-full sm:w-auto"
+          >
+            {action.icon && (
+              <Icon name={action.icon} class="w-5 h-5 mr-2 -ml-1" />
+            )}
+            {action.text}
+          </Button>
+        ))}
     </div>
   </div>
   <slot />

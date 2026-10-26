@@ -31,48 +31,44 @@ const {
   />
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {
-      testimonials &&
-        testimonials.map(({ testimonial, name, role, company, image }) => (
-          <div class="flex flex-col p-6 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-black/5 dark:border-white/10 bg-white/50 dark:bg-slate-900/50">
-            {testimonial && (
-              <blockquote class="flex-auto">
-                <p class="text-muted-foreground">"{testimonial}"</p>
-              </blockquote>
-            )}
+    {testimonials &&
+      testimonials.map(({ testimonial, name, role, company, image }) => (
+        <div class="flex flex-col p-6 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-black/5 dark:border-white/10 bg-white/50 dark:bg-slate-900/50">
+          {testimonial && (
+            <blockquote class="flex-auto">
+              <p class="text-muted-foreground">"{testimonial}"</p>
+            </blockquote>
+          )}
 
-            <div class="flex items-center gap-4 mt-6">
-              {image ? (
-                <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-700 overflow-hidden shrink-0">
-                  <img
-                    src={image}
-                    alt={name}
-                    class="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ) : (
-                <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">
-                  {name ? name.charAt(0).toUpperCase() : "U"}
+          <div class="flex items-center gap-4 mt-6">
+            {image ? (
+              <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-700 overflow-hidden shrink-0">
+                <img
+                  src={image}
+                  alt={name}
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">
+                {name ? name.charAt(0).toUpperCase() : "U"}
+              </div>
+            )}
+            <div class="flex flex-col">
+              {name && (
+                <div class="text-base font-semibold leading-tight">{name}</div>
+              )}
+              {(role || company) && (
+                <div class="text-xs text-muted-foreground mt-0.5">
+                  {role}
+                  {role && company ? " at " : ""}
+                  {company}
                 </div>
               )}
-              <div class="flex flex-col">
-                {name && (
-                  <div class="text-base font-semibold leading-tight">
-                    {name}
-                  </div>
-                )}
-                {(role || company) && (
-                  <div class="text-xs text-muted-foreground mt-0.5">
-                    {role}
-                    {role && company ? " at " : ""}
-                    {company}
-                  </div>
-                )}
-              </div>
             </div>
           </div>
-        ))
-    }
+        </div>
+      ))}
   </div>
 </WidgetWrapper>

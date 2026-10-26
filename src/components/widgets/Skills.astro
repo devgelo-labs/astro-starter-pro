@@ -32,14 +32,12 @@ const {
   />
 
   <div class="flex flex-wrap justify-center gap-4 mt-8">
-    {
-      skills &&
-        skills.map(({ name, icon }) => (
-          <div class="flex items-center gap-3 px-5 py-3.5 bg-white dark:bg-slate-900 border border-black/5 dark:border-white/10 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {icon && <Icon name={icon} class="w-6 h-6 text-primary" />}
-            <span class="font-semibold">{name}</span>
-          </div>
-        ))
-    }
+    {skills &&
+      skills.map(({ name, icon }) => (
+        <div class="flex items-center gap-3 px-5 py-3.5 bg-white dark:bg-slate-900 border border-black/5 dark:border-white/10 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+          {icon && <Icon name={icon} class="w-6 h-6 text-primary" />}
+          <span class="font-semibold">{name}</span>
+        </div>
+      ))}
   </div>
 </WidgetWrapper>

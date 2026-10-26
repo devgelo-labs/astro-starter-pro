@@ -39,8 +39,10 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
     <div class="md:basis-1/2 self-center text-left">
       <Headline
         title={title}
-        subtitle={subtitle ||
-          (Array.isArray(description) ? description.join(" ") : description)}
+        subtitle={
+          subtitle ||
+          (Array.isArray(description) ? description.join(" ") : description)
+        }
         tagline={tagline}
         titleAs="h2"
         classes={{
@@ -54,79 +56,71 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
       {/* Slot before items if not isAfterContent */}
       {!isAfterContent && <slot />}
 
-      {
-        items && items.length > 0 && (
-          <div class="space-y-8 my-8">
-            {items.map(
-              ({
-                title: titleItem,
-                description: descriptionItem,
-                icon,
-                iconClass,
-              }) => (
-                <div class="flex">
-                  <div class="shrink-0">
-                    <div
-                      class={`flex items-center justify-center w-10 h-10 rounded-full ${iconClass ? iconClass : "bg-primary/10 text-primary"}`}
-                    >
-                      {icon ? (
-                        <Icon name={icon} class="w-5 h-5" />
-                      ) : (
-                        <Icon name="tabler:check" class="w-5 h-5" />
-                      )}
-                    </div>
-                  </div>
-                  <div class="ml-4">
-                    {titleItem && (
-                      <h3 class="text-lg font-medium leading-6">{titleItem}</h3>
-                    )}
-                    {descriptionItem && (
-                      <p class="mt-2 text-muted-foreground">
-                        {descriptionItem}
-                      </p>
+      {items && items.length > 0 && (
+        <div class="space-y-8 my-8">
+          {items.map(
+            ({
+              title: titleItem,
+              description: descriptionItem,
+              icon,
+              iconClass,
+            }) => (
+              <div class="flex">
+                <div class="shrink-0">
+                  <div
+                    class={`flex items-center justify-center w-10 h-10 rounded-full ${iconClass ? iconClass : "bg-primary/10 text-primary"}`}
+                  >
+                    {icon ? (
+                      <Icon name={icon} class="w-5 h-5" />
+                    ) : (
+                      <Icon name="tabler:check" class="w-5 h-5" />
                     )}
                   </div>
                 </div>
-              ),
-            )}
-          </div>
-        )
-      }
-      {
-        Array.isArray(actions) && actions.length > 0 && (
-          <div class="mt-8 flex flex-col sm:flex-row gap-4">
-            {actions.map((action) => (
-              <Button
-                href={action.href}
-                variant={action.variant as "primary" | "secondary"}
-                aria-label={action.ariaLabel}
-                class="w-full sm:w-auto"
-              >
-                {action.icon && (
-                  <Icon name={action.icon} class="w-5 h-5 mr-2 -ml-1" />
-                )}
-                {action.text}
-              </Button>
-            ))}
-          </div>
-        )
-      }
+                <div class="ml-4">
+                  {titleItem && (
+                    <h3 class="text-lg font-medium leading-6">{titleItem}</h3>
+                  )}
+                  {descriptionItem && (
+                    <p class="mt-2 text-muted-foreground">{descriptionItem}</p>
+                  )}
+                </div>
+              </div>
+            ),
+          )}
+        </div>
+      )}
+      {Array.isArray(actions) && actions.length > 0 && (
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          {actions.map((action) => (
+            <Button
+              href={action.href}
+              variant={action.variant as "primary" | "secondary"}
+              aria-label={action.ariaLabel}
+              class="w-full sm:w-auto"
+            >
+              {action.icon && (
+                <Icon name={action.icon} class="w-5 h-5 mr-2 -ml-1" />
+              )}
+              {action.text}
+            </Button>
+          ))}
+        </div>
+      )}
 
       {/* Slot after items if isAfterContent */}
       {isAfterContent && <slot />}
     </div>
     <div class="md:basis-1/2 self-center mt-10 md:mt-0" aria-hidden="true">
-      {
-        image && (
-          <div class="relative m-auto max-w-4xl">
-            <Image
-              src={image}
-              alt={imageAlt}
-              class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-            />
-          </div>
-        )
-      }
+      {image && (
+        <div class="relative m-auto max-w-4xl">
+          <Image
+            src={image}
+            alt={imageAlt}
+            class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+          />
+        </div>
+      )}
     </div>
   </div>
 </WidgetWrapper>

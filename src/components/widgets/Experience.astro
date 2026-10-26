@@ -31,51 +31,44 @@ const {
     classes={classes?.headline}
   />
 
-  <div
-    class="relative border-l border-slate-200 dark:border-slate-700 mt-12 ml-4 md:ml-0 md:border-none"
-  >
-    <div
-      class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-700 -translate-x-1/2"
-    >
-    </div>
-    {
-      items &&
-        items.map(
-          ({ title: jobTitle, company, description, date, icon }, index) => (
+  <div class="relative border-l border-slate-200 dark:border-slate-700 mt-12 ml-4 md:ml-0 md:border-none">
+    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-700 -translate-x-1/2"></div>
+    {items &&
+      items.map(
+        ({ title: jobTitle, company, description, date, icon }, index) => (
+          <div
+            class={`relative flex flex-col md:flex-row items-start justify-between mb-16 last:mb-0 w-full ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+          >
             <div
-              class={`relative flex flex-col md:flex-row items-start justify-between mb-16 last:mb-0 w-full ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+              class={`order-1 md:w-5/12 pl-8 md:pl-0 ${index % 2 === 0 ? "md:pl-10" : "md:pr-10 md:text-right"} w-full pt-1`}
             >
-              <div
-                class={`order-1 md:w-5/12 pl-8 md:pl-0 ${index % 2 === 0 ? "md:pl-10" : "md:pr-10 md:text-right"} w-full pt-1`}
-              >
-                <div class="mb-2 text-sm font-bold tracking-widest text-primary uppercase">
-                  {date}
-                </div>
-                <h3 class="mb-1 text-2xl font-bold font-heading">{jobTitle}</h3>
-                <div class="mb-4 text-lg font-medium text-slate-800 dark:text-slate-300">
-                  {company}
-                </div>
-                {description && (
-                  <p class="text-muted-foreground leading-relaxed">
-                    {description}
-                  </p>
+              <div class="mb-2 text-sm font-bold tracking-widest text-primary uppercase">
+                {date}
+              </div>
+              <h3 class="mb-1 text-2xl font-bold font-heading">{jobTitle}</h3>
+              <div class="mb-4 text-lg font-medium text-slate-800 dark:text-slate-300">
+                {company}
+              </div>
+              {description && (
+                <p class="text-muted-foreground leading-relaxed">
+                  {description}
+                </p>
+              )}
+            </div>
+
+            <div class="z-10 order-2 absolute left-0 md:left-auto md:relative md:w-2/12 flex items-center justify-center -translate-x-[1.35rem] md:-translate-x-0 mt-1 md:mt-0">
+              <div class="w-12 h-12 bg-white dark:bg-slate-900 border-4 border-slate-100 dark:border-slate-800 rounded-full flex items-center justify-center shadow-md">
+                {icon ? (
+                  <Icon name={icon} class="w-5 h-5 text-primary" />
+                ) : (
+                  <div class="w-4 h-4 bg-primary rounded-full" />
                 )}
               </div>
-
-              <div class="z-10 order-2 absolute left-0 md:left-auto md:relative md:w-2/12 flex items-center justify-center -translate-x-[1.35rem] md:-translate-x-0 mt-1 md:mt-0">
-                <div class="w-12 h-12 bg-white dark:bg-slate-900 border-4 border-slate-100 dark:border-slate-800 rounded-full flex items-center justify-center shadow-md">
-                  {icon ? (
-                    <Icon name={icon} class="w-5 h-5 text-primary" />
-                  ) : (
-                    <div class="w-4 h-4 bg-primary rounded-full" />
-                  )}
-                </div>
-              </div>
-
-              <div class="order-3 md:w-5/12 hidden md:block" />
             </div>
-          ),
-        )
-    }
+
+            <div class="order-3 md:w-5/12 hidden md:block" />
+          </div>
+        ),
+      )}
   </div>
 </WidgetWrapper>

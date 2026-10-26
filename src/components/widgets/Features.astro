@@ -35,22 +35,18 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
     }}
   />
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {
-      features.map((feature) => (
-        <Card>
-          {feature.icon && (
-            <div
-              class={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${feature.iconClass ? feature.iconClass : "bg-primary/10 text-primary"}`}
-            >
-              <Icon name={feature.icon} class="w-6 h-6" />
-            </div>
-          )}
-          <h3 class="text-xl font-bold text-foreground mb-3">
-            {feature.title}
-          </h3>
-          <p class="text-muted-foreground text-sm">{feature.description}</p>
-        </Card>
-      ))
-    }
+    {features.map((feature) => (
+      <Card>
+        {feature.icon && (
+          <div
+            class={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${feature.iconClass ? feature.iconClass : "bg-primary/10 text-primary"}`}
+          >
+            <Icon name={feature.icon} class="w-6 h-6" />
+          </div>
+        )}
+        <h3 class="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+        <p class="text-muted-foreground text-sm">{feature.description}</p>
+      </Card>
+    ))}
   </div>
 </WidgetWrapper>

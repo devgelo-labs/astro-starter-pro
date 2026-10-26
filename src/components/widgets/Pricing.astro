@@ -38,60 +38,58 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
   />
 
   <div class="grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-8 items-stretch">
-    {
-      plans.map((plan) => (
-        <div
-          class={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-xl ${
-            plan.isPopular
-              ? "bg-primary/5 border-primary/40 shadow-lg scale-100 md:scale-105 z-10"
-              : "bg-card border-border/50 shadow-sm"
-          }`}
-        >
-          {plan.isPopular && (
-            <div class="absolute top-0 right-8 -translate-y-1/2">
-              <span class="inline-flex items-center rounded-full bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
-                Most Popular
-              </span>
-            </div>
-          )}
-
-          <div class="mb-6">
-            <h3 class="text-2xl font-bold">{plan.name}</h3>
-            <p class="mt-2 text-muted-foreground">{plan.description}</p>
-          </div>
-
-          <div class="mb-8 flex items-baseline text-foreground">
-            <span class="text-5xl font-extrabold tracking-tight">
-              {plan.price}
+    {plans.map((plan) => (
+      <div
+        class={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-xl ${
+          plan.isPopular
+            ? "bg-primary/5 border-primary/40 shadow-lg scale-100 md:scale-105 z-10"
+            : "bg-card border-border/50 shadow-sm"
+        }`}
+      >
+        {plan.isPopular && (
+          <div class="absolute top-0 right-8 -translate-y-1/2">
+            <span class="inline-flex items-center rounded-full bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
+              Most Popular
             </span>
-            {plan.period && (
-              <span class="ml-1 text-xl font-medium text-muted-foreground">
-                {plan.period}
-              </span>
-            )}
           </div>
+        )}
 
-          <ul class="mb-8 flex-1 space-y-4">
-            {plan.features.map((feature) => (
-              <li class="flex items-start">
-                <Icon
-                  name="lucide:check"
-                  class="h-5 w-5 shrink-0 text-primary mt-0.5"
-                />
-                <span class="ml-3 text-muted-foreground">{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          <Button
-            href={plan.buttonHref}
-            variant={plan.isPopular ? "primary" : "secondary"}
-            class="w-full"
-          >
-            {plan.buttonText}
-          </Button>
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold">{plan.name}</h3>
+          <p class="mt-2 text-muted-foreground">{plan.description}</p>
         </div>
-      ))
-    }
+
+        <div class="mb-8 flex items-baseline text-foreground">
+          <span class="text-5xl font-extrabold tracking-tight">
+            {plan.price}
+          </span>
+          {plan.period && (
+            <span class="ml-1 text-xl font-medium text-muted-foreground">
+              {plan.period}
+            </span>
+          )}
+        </div>
+
+        <ul class="mb-8 flex-1 space-y-4">
+          {plan.features.map((feature) => (
+            <li class="flex items-start">
+              <Icon
+                name="lucide:check"
+                class="h-5 w-5 shrink-0 text-primary mt-0.5"
+              />
+              <span class="ml-3 text-muted-foreground">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <Button
+          href={plan.buttonHref}
+          variant={plan.isPopular ? "primary" : "secondary"}
+          class="w-full"
+        >
+          {plan.buttonText}
+        </Button>
+      </div>
+    ))}
   </div>
 </WidgetWrapper>

@@ -32,56 +32,54 @@ const {
   />
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-    {
-      projects &&
-        projects.map(
-          ({ title: projectTitle, description, image, link, tags }) => (
-            <a
-              href={link || "#"}
-              class="group block relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-black/5 dark:border-white/10 bg-white dark:bg-slate-900"
-            >
-              {image ? (
-                <div class="relative h-56 sm:h-64 overflow-hidden bg-slate-100 dark:bg-slate-800">
-                  <img
-                    src={image}
-                    alt={projectTitle}
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              ) : (
-                <div class="relative h-56 sm:h-64 overflow-hidden bg-primary/5 flex items-center justify-center">
-                  <Icon name="lucide:image" class="w-12 h-12 text-primary/20" />
-                </div>
-              )}
-              <div class="p-6 flex flex-col h-[calc(100%-14rem)] sm:h-[calc(100%-16rem)] min-h-[180px]">
-                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                  {projectTitle}
-                </h3>
-                <p class="text-muted-foreground mb-4 line-clamp-3 flex-grow">
-                  {description}
-                </p>
-                {tags && tags.length > 0 && (
-                  <div class="flex flex-wrap gap-2 mt-auto">
-                    {tags.map((tag) => (
-                      <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-md">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+    {projects &&
+      projects.map(
+        ({ title: projectTitle, description, image, link, tags }) => (
+          <a
+            href={link || "#"}
+            class="group block relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-black/5 dark:border-white/10 bg-white dark:bg-slate-900"
+          >
+            {image ? (
+              <div class="relative h-56 sm:h-64 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                <img
+                  src={image}
+                  alt={projectTitle}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
-              {link && (
-                <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm backdrop-blur-md">
-                  <Icon
-                    name="tabler:external-link"
-                    class="w-5 h-5 text-primary"
-                  />
+            ) : (
+              <div class="relative h-56 sm:h-64 overflow-hidden bg-primary/5 flex items-center justify-center">
+                <Icon name="lucide:image" class="w-12 h-12 text-primary/20" />
+              </div>
+            )}
+            <div class="p-6 flex flex-col h-[calc(100%-14rem)] sm:h-[calc(100%-16rem)] min-h-[180px]">
+              <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                {projectTitle}
+              </h3>
+              <p class="text-muted-foreground mb-4 line-clamp-3 flex-grow">
+                {description}
+              </p>
+              {tags && tags.length > 0 && (
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  {tags.map((tag) => (
+                    <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-md">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               )}
-            </a>
-          ),
-        )
-    }
+            </div>
+            {link && (
+              <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm backdrop-blur-md">
+                <Icon
+                  name="tabler:external-link"
+                  class="w-5 h-5 text-primary"
+                />
+              </div>
+            )}
+          </a>
+        ),
+      )}
   </div>
 </WidgetWrapper>

@@ -55,8 +55,6 @@ const canonicalURL =
 <meta property="twitter:title" content={fullTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(ogImageSrc, siteConfig.url)} />
-{
-  siteConfig.twitter && (
-    <meta property="twitter:creator" content={siteConfig.twitter} />
-  )
-}
+{siteConfig.twitter && (
+  <meta property="twitter:creator" content={siteConfig.twitter} />
+)}

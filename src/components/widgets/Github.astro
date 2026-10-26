@@ -35,26 +35,18 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
   bg={bg}
   classes={otherClasses}
 >
-  <div
-    class="py-12 md:py-20 px-8 flex flex-col items-center justify-center rounded-3xl bg-linear-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 border border-primary/20 shadow-xl overflow-hidden relative group transition-all duration-300 hover:shadow-2xl hover:border-primary/40"
-  >
+  <div class="py-12 md:py-20 px-8 flex flex-col items-center justify-center rounded-3xl bg-linear-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 border border-primary/20 shadow-xl overflow-hidden relative group transition-all duration-300 hover:shadow-2xl hover:border-primary/40">
     <div
       class="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-900/[0.04] transition-opacity duration-300 group-hover:opacity-100 opacity-50"
       style="mask-image: linear-gradient(to bottom, transparent, black);"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-linear-to-b from-transparent to-background/20 z-0"
-    >
-    </div>
+    ></div>
+    <div class="absolute inset-0 bg-linear-to-b from-transparent to-background/20 z-0"></div>
     <div class="relative z-10 flex flex-col items-center justify-center">
-      {
-        icon && (
-          <div class="p-4 bg-background/50 backdrop-blur-sm rounded-2xl mb-6 shadow-sm border border-border/50 group-hover:scale-110 transition-transform duration-300">
-            <Icon name={icon} class="w-12 h-12 text-primary" />
-          </div>
-        )
-      }
+      {icon && (
+        <div class="p-4 bg-background/50 backdrop-blur-sm rounded-2xl mb-6 shadow-sm border border-border/50 group-hover:scale-110 transition-transform duration-300">
+          <Icon name={icon} class="w-12 h-12 text-primary" />
+        </div>
+      )}
       <Headline
         title={title}
         subtitle={subtitle}
@@ -67,28 +59,26 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
         }}
       />
 
-      {
-        Array.isArray(actions) && actions.length > 0 && (
-          <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-            {actions.map((action) => (
-              <Button
-                href={action.href}
-                variant={action.variant as "primary" | "secondary" | "tertiary"}
-                aria-label={action.ariaLabel}
-                class="w-full sm:w-auto group/btn"
-              >
-                {action.icon && (
-                  <Icon
-                    name={action.icon}
-                    class="w-5 h-5 mr-2 -ml-1 transition-transform group-hover/btn:-translate-y-0.5"
-                  />
-                )}
-                {action.text}
-              </Button>
-            ))}
-          </div>
-        )
-      }
+      {Array.isArray(actions) && actions.length > 0 && (
+        <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+          {actions.map((action) => (
+            <Button
+              href={action.href}
+              variant={action.variant as "primary" | "secondary" | "tertiary"}
+              aria-label={action.ariaLabel}
+              class="w-full sm:w-auto group/btn"
+            >
+              {action.icon && (
+                <Icon
+                  name={action.icon}
+                  class="w-5 h-5 mr-2 -ml-1 transition-transform group-hover/btn:-translate-y-0.5"
+                />
+              )}
+              {action.text}
+            </Button>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 </WidgetWrapper>

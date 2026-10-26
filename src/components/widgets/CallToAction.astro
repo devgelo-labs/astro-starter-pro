@@ -24,54 +24,43 @@ const {
   bg={bg}
   animate={animate}
 >
-  <div
-    class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"
-  >
-  </div>
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
   <div class="text-center max-w-3xl mx-auto relative z-10">
-    {
-      tagline && (
-        <p class="text-primary font-bold uppercase tracking-widest mb-4 text-sm">
-          {tagline}
-        </p>
-      )
-    }
-    {
-      title && (
-        <h2
-          class="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-heading"
-          set:html={title}
-        />
-      )
-    }
-    {
-      subtitle && (
-        <p
-          class="text-xl md:text-2xl text-muted-foreground mb-10"
-          set:html={subtitle}
-        />
-      )
-    }
+    {tagline && (
+      <p class="text-primary font-bold uppercase tracking-widest mb-4 text-sm">
+        {tagline}
+      </p>
+    )}
+    {title && (
+      <h2
+        class="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-heading"
+        set:html={title}
+      />
+    )}
+    {subtitle && (
+      <p
+        class="text-xl md:text-2xl text-muted-foreground mb-10"
+        set:html={subtitle}
+      />
+    )}
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      {
-        Array.isArray(actions) &&
-          actions.length > 0 &&
-          actions.map((action) => (
-            <Button
-              href={action.href}
-              variant={action.variant as "primary" | "secondary"}
-              size="lg"
-              aria-label={action.ariaLabel}
-              class="w-full sm:w-auto shadow-lg hover:shadow-xl transition-shadow"
-            >
-              {action.icon && (
-                <Icon name={action.icon} class="w-5 h-5 mr-2 -ml-1" />
-              )}
-              {action.text}
-            </Button>
-          ))
-      }
+      {Array.isArray(actions) &&
+        actions.length > 0 &&
+        actions.map((action) => (
+          <Button
+            href={action.href}
+            variant={action.variant as "primary" | "secondary"}
+            size="lg"
+            aria-label={action.ariaLabel}
+            class="w-full sm:w-auto shadow-lg hover:shadow-xl transition-shadow"
+          >
+            {action.icon && (
+              <Icon name={action.icon} class="w-5 h-5 mr-2 -ml-1" />
+            )}
+            {action.text}
+          </Button>
+        ))}
     </div>
   </div>
 </WidgetWrapper>

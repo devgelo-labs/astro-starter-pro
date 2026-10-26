@@ -7,9 +7,7 @@ import { siteConfig } from "@/config/site";
     <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
       <div class="flex flex-col items-center gap-2 md:items-start">
         <span class="text-lg font-bold text-foreground">{siteConfig.name}</span>
-        <p class="text-sm text-muted-foreground">
-          {siteConfig.description}
-        </p>
+        <p class="text-sm text-muted-foreground">{siteConfig.description}</p>
       </div>
       <div class="flex items-center gap-6">
         <a
@@ -17,27 +15,28 @@ import { siteConfig } from "@/config/site";
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted-foreground transition-colors hover:text-primary"
-          >Twitter</a
         >
+          Twitter
+        </a>
         <a
           href={siteConfig.socialLinks.github}
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted-foreground transition-colors hover:text-primary"
-          >GitHub</a
         >
+          GitHub
+        </a>
         <a
           href={siteConfig.socialLinks.discord}
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted-foreground transition-colors hover:text-primary"
-          >Discord</a
         >
+          Discord
+        </a>
       </div>
     </div>
-    <div
-      class="mt-8 border-t border-border pt-8 text-center text-xs text-muted-foreground"
-    >
+    <div class="mt-8 border-t border-border pt-8 text-center text-xs text-muted-foreground">
       &copy; {new Date().getFullYear()}
       {siteConfig.author}. All rights reserved.
     </div>

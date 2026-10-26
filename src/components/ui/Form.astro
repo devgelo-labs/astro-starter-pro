@@ -11,9 +11,9 @@ const { action = "#", method = "POST" } = Astro.props;
 
 <form action={action} method={method} class="space-y-6">
   <div>
-    <label for="name" class="block text-sm font-medium text-foreground/80 mb-2"
-      >Name</label
-    >
+    <label for="name" class="block text-sm font-medium text-foreground/80 mb-2">
+      Name
+    </label>
     <input
       type="text"
       name="name"
@@ -25,9 +25,12 @@ const { action = "#", method = "POST" } = Astro.props;
     />
   </div>
   <div>
-    <label for="email" class="block text-sm font-medium text-foreground/80 mb-2"
-      >Email</label
+    <label
+      for="email"
+      class="block text-sm font-medium text-foreground/80 mb-2"
     >
+      Email
+    </label>
     <input
       type="email"
       name="email"
@@ -41,15 +44,18 @@ const { action = "#", method = "POST" } = Astro.props;
   <div>
     <label
       for="message"
-      class="block text-sm font-medium text-foreground/80 mb-2">Message</label
+      class="block text-sm font-medium text-foreground/80 mb-2"
     >
+      Message
+    </label>
     <textarea
       name="message"
       id="message"
       rows="4"
       required
       class="block w-full rounded-xl border-border bg-muted/50 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20 transition-all border outline-none focus:ring-4 resize-none"
-      placeholder="How can we help you?"></textarea>
+      placeholder="How can we help you?"
+    ></textarea>
   </div>
   <div>
     <Button type="submit" size="lg" class="w-full sm:w-auto">

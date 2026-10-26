@@ -33,27 +33,23 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
       container: "max-w-3xl mx-auto text-center",
     }}
   />
-  <div
-    class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto items-center mt-12"
-  >
-    {
-      integrations.map((integration) => (
-        <a
-          href={integration.url || "#"}
-          target={integration.url ? "_blank" : undefined}
-          rel={integration.url ? "noopener noreferrer" : undefined}
-          class="flex flex-col items-center justify-center p-6 w-[140px] sm:w-[160px] md:w-[180px] bg-card/30 dark:bg-card/10 rounded-2xl border border-border/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 hover:bg-card dark:hover:bg-card/40 group"
-        >
-          {integration.icon && (
-            <div class="w-16 h-16 flex items-center justify-center text-muted-foreground transition-all duration-300 group-hover:text-foreground group-hover:grayscale-0 grayscale opacity-60 group-hover:opacity-100 mb-3">
-              <Icon name={integration.icon} class="w-12 h-12" />
-            </div>
-          )}
-          <span class="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-            {integration.name}
-          </span>
-        </a>
-      ))
-    }
+  <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto items-center mt-12">
+    {integrations.map((integration) => (
+      <a
+        href={integration.url || "#"}
+        target={integration.url ? "_blank" : undefined}
+        rel={integration.url ? "noopener noreferrer" : undefined}
+        class="flex flex-col items-center justify-center p-6 w-[140px] sm:w-[160px] md:w-[180px] bg-card/30 dark:bg-card/10 rounded-2xl border border-border/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 hover:bg-card dark:hover:bg-card/40 group"
+      >
+        {integration.icon && (
+          <div class="w-16 h-16 flex items-center justify-center text-muted-foreground transition-all duration-300 group-hover:text-foreground group-hover:grayscale-0 grayscale opacity-60 group-hover:opacity-100 mb-3">
+            <Icon name={integration.icon} class="w-12 h-12" />
+          </div>
+        )}
+        <span class="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+          {integration.name}
+        </span>
+      </a>
+    ))}
   </div>
 </WidgetWrapper>

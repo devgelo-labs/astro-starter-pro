@@ -27,10 +27,7 @@ const metadata = {
 <BaseLayout metadata={metadata}>
   <section class="relative px-4 py-8 sm:px-6 lg:px-8 md:py-12">
     <div class="absolute inset-0 z-0">
-      <div
-        class="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-pink-500/5"
-      >
-      </div>
+      <div class="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-pink-500/5"></div>
     </div>
     <div class="relative mx-auto max-w-5xl">
       <Headline
@@ -46,7 +43,9 @@ const metadata = {
       />
 
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {blog.map((post) => <PostItem post={post} />)}
+        {blog.map((post) => (
+          <PostItem post={post} />
+        ))}
       </div>
       <Pagination page={page} />
     </div>

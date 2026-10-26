@@ -30,8 +30,10 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
   <div class="text-center">
     <Headline
       title={title}
-      subtitle={subtitle ||
-        (Array.isArray(description) ? description.join(" ") : description)}
+      subtitle={
+        subtitle ||
+        (Array.isArray(description) ? description.join(" ") : description)
+      }
       tagline={tagline}
       classes={{
         container: "mb-8",
@@ -39,15 +41,13 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
         subtitle: "text-lg text-muted-foreground",
       }}
     />
-    {
-      image && (
-        <Image
-          src={image}
-          alt={imageAlt}
-          class="rounded-3xl shadow-2xl mx-auto mt-6 border border-border/50 aspect-video object-cover"
-        />
-      )
-    }
+    {image && (
+      <Image
+        src={image}
+        alt={imageAlt}
+        class="rounded-3xl shadow-2xl mx-auto mt-6 border border-border/50 aspect-video object-cover"
+      />
+    )}
     <slot />
   </div>
 </WidgetWrapper>
