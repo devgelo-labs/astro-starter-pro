@@ -1,17 +1,15 @@
 ---
 import Tags from "@/components/ui/Tags.astro";
-import { type CollectionEntry, render } from "astro:content";
+import { getReadingTime } from "@/utils/reading-time";
+import type { CollectionEntry } from "astro:content";
 
 export interface Props {
   post: CollectionEntry<"blog">;
 }
 
 const { post } = Astro.props;
-const { remarkPluginFrontmatter } = await render(post);
 
-const readingTime = remarkPluginFrontmatter?.minutesRead
-  ? `${Math.ceil(remarkPluginFrontmatter.minutesRead)} min read`
-  : "";
+const readingTime = post.body ? `${getReadingTime(post.body)} min read` : "";
 ---
 
 <article class="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">

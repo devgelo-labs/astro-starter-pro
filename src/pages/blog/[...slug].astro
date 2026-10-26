@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Schema from "@/components/seo/Schema.astro";
+import { getReadingTime } from "@/utils/reading-time";
 
 import { getCollection, render } from "astro:content";
 
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(post);
+const { Content } = await render(post);
 const { title, description, pubDate, author, image } = post.data;
 
 const formattedDate = pubDate.toLocaleDateString("en", {
@@ -22,8 +23,8 @@ const formattedDate = pubDate.toLocaleDateString("en", {
   day: "numeric",
 });
 
-const readingTime = remarkPluginFrontmatter?.minutesRead
-  ? `${Math.ceil(remarkPluginFrontmatter.minutesRead)} min reading time`
+const readingTime = post.body
+  ? `${getReadingTime(post.body)} min reading time`
   : "";
 
 const metadata = {
